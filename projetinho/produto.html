@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de produto</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,13 +24,83 @@
                 <th>nota</th>
                 <th>situação</th>
 
-
+                <tbody id="corpo"></tbody>
             </tr>
         </table>
+
+    </div>
+    <div id="sumir">
+
+        <button onclick="sumir()">sumir</button>
+
 
 
 
     </div>
+
+
+
+    <br><br>
+
+
+    <div id="aparecer" class="hidden">
+
+        <button onclick="aparecer()">aparecer</button>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        function sumir() {
+            const tabela = document.getElementById("corpo").classList.add('hidden')
+document.getElementById("aparecer").classList.remove('hidden')
+        }
+        function aparecer() {
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        let nomes = ["Ana", "Maria", "Fabio", "Roger"]
+        let Matriculas = [1111, 2222, 3333, 4444]
+        let notas = [5, 9, 8, 3]
+        let situação = ["Reprovado", "Aprovado", "Aprovado", "Reprovado"]
+
+        const corpo = document.getElementById('corpo')
+        for (let i = 0; i < nomes.length; i++) {
+            const linha = document.createElement("tr")
+            linha.innerHTML = `
+                <td>${nomes[i]}</td>
+                 <td>${Matriculas[i]}</td> 
+                  <td>${notas[i]}</td>
+                  <td>${situação[i]}</td>
+                `
+            corpo.appendChild(linha)
+        }
+    </script>
+
+
 </body>
 
 </html>
